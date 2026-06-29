@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Healing Infrastructure with Auto Scaling Using AWS</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+    line-height:1.7;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#0056b3;
+}
+
+h2{
+    color:#006699;
+    border-bottom:2px solid #006699;
+    padding-bottom:5px;
+}
+
+h3{
+    color:#444;
+}
+
+p{
+    text-align:justify;
+}
+
+ul{
+    margin-left:20px;
+}
+
+footer{
+    text-align:center;
+    margin-top:30px;
+    color:gray;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Self-Healing Infrastructure with Auto Scaling Using AWS</h1>
+
+<h2>Abstract</h2>
+
+<p>
+Cloud computing has transformed the way organizations deploy and manage applications by providing scalable,
+reliable, and cost-effective infrastructure. However, traditional server management requires continuous manual
+monitoring to identify failures, replace damaged servers, and adjust resources according to user demand.
+This manual process often leads to service interruptions, increased operational costs, and poor user experience.
+The proposed project, <b>Self-Healing Infrastructure with Auto Scaling Using AWS</b>, addresses these challenges
+by automating infrastructure management using Amazon Web Services (AWS).
+</p>
+
+<p>
+The project utilizes AWS services such as Amazon EC2, Elastic Load Balancer (ELB), Auto Scaling Group (ASG),
+and Amazon CloudWatch to monitor the health of application servers continuously. When an EC2 instance becomes
+unhealthy or fails, the Auto Scaling Group automatically launches a new instance to replace it. Similarly,
+when user traffic increases, additional EC2 instances are created automatically to maintain application
+performance. During low traffic periods, unnecessary instances are removed, reducing operational costs.
+</p>
+
+<p>
+The primary objective of this project is to build a highly available, fault-tolerant, and cost-efficient cloud
+infrastructure without requiring manual intervention. The expected outcome is an automated cloud environment
+that ensures continuous service availability, optimal resource utilization, reduced downtime, and improved
+application performance. This project demonstrates how cloud automation enhances system reliability while
+minimizing administrative effort and infrastructure costs.
+</p>
+
+<h2>Introduction</h2>
+
+<p>
+Cloud computing has become one of the most important technologies for modern businesses because it allows
+applications to be hosted on flexible and scalable infrastructure. Organizations rely on cloud platforms to
+provide uninterrupted services to users around the world. However, maintaining high availability is challenging
+when servers fail unexpectedly or when application traffic suddenly increases.
+</p>
+
+<p>
+Traditionally, system administrators manually monitored server health and added or removed servers whenever
+required. This approach is time-consuming, prone to human error, and unable to respond quickly during peak
+traffic. AWS provides several cloud services that automate these operations, making infrastructure management
+more efficient.
+</p>
+
+<p>
+This project focuses on implementing a self-healing infrastructure using AWS services. By combining Auto Scaling,
+Elastic Load Balancing, and CloudWatch monitoring, the system can automatically detect failures, replace
+unhealthy servers, and scale resources based on demand. This automation improves application reliability,
+reduces downtime, and ensures that users receive uninterrupted service while organizations optimize
+infrastructure costs.
+</p>
+
+<h2>Key Points of the Project</h2>
+
+<ul>
+<li>Uses Amazon EC2 instances to host cloud applications.</li>
+<li>Implements Elastic Load Balancer to distribute incoming user traffic.</li>
+<li>Uses Auto Scaling Groups to automatically increase or decrease EC2 instances.</li>
+<li>Monitors system health continuously using Amazon CloudWatch.</li>
+<li>Automatically replaces failed or unhealthy instances.</li>
+<li>Supports high availability and fault tolerance.</li>
+<li>Optimizes infrastructure costs by scaling resources according to demand.</li>
+<li>Reduces manual monitoring and administrative workload.</li>
+<li>Improves application performance during high traffic conditions.</li>
+<li>Demonstrates automated cloud infrastructure management using AWS.</li>
+</ul>
+
+<h2>Advantages & Limitations</h2>
+
+<h3>Advantages</h3>
+
+<ul>
+<li>Ensures high availability of cloud applications.</li>
+<li>Automatically replaces failed EC2 instances without manual intervention.</li>
+<li>Improves application performance during traffic spikes.</li>
+<li>Reduces operational costs by scaling resources based on demand.</li>
+<li>Minimizes downtime and improves customer satisfaction.</li>
+<li>Reduces the workload of system administrators.</li>
+<li>Provides reliable and efficient cloud infrastructure management.</li>
+</ul>
+
+<h3>Limitations</h3>
+
+<ul>
+<li>Requires an active AWS account and cloud resources.</li>
+<li>AWS services may generate costs depending on resource usage.</li>
+<li>Initial configuration of Auto Scaling and Load Balancing requires technical knowledge.</li>
+<li>Continuous internet connectivity is necessary for cloud operations.</li>
+<li>Advanced monitoring and security configurations may require additional AWS services.</li>
+</ul>
+
+<h2>Components in the System Architecture Diagram</h2>
+
+<h3>Users</h3>
+
+<p>
+Users access the web application through the internet. Their requests are forwarded to the Load Balancer
+for processing.
+</p>
+
+<h3>Elastic Load Balancer (ELB)</h3>
+
+<p>
+The Elastic Load Balancer distributes incoming traffic evenly across multiple EC2 instances. This prevents
+any single server from becoming overloaded and improves application performance.
+</p>
+
+<h3>Amazon EC2 Instances</h3>
+
+<p>
+EC2 instances act as virtual servers that host the application. Multiple instances ensure continuous service
+even if one server fails.
+</p>
+
+<h3>Auto Scaling Group (ASG)</h3>
+
+<p>
+The Auto Scaling Group automatically launches new EC2 instances when traffic increases and terminates
+unnecessary instances during low traffic periods. It also replaces unhealthy instances automatically,
+ensuring self-healing capability.
+</p>
+
+<h3>Amazon CloudWatch</h3>
+
+<p>
+CloudWatch continuously monitors CPU utilization, memory usage, network activity, and instance health.
+When predefined thresholds are exceeded, CloudWatch triggers Auto Scaling actions to maintain optimal
+system performance.
+</p>
+
+<h3>AWS Cloud Infrastructure</h3>
+
+<p>
+AWS provides the secure cloud environment where all services operate together to deliver scalable,
+reliable, and automated infrastructure management.
+</p>
+
+<h2>Future Scope</h2>
+
+<ul>
+<li>Integrate Artificial Intelligence and Machine Learning for predictive auto scaling.</li>
+<li>Deploy infrastructure across multiple AWS Regions for disaster recovery.</li>
+<li>Use Docker and Kubernetes for containerized deployment.</li>
+<li>Enhance security using AWS WAF and AWS Shield.</li>
+<li>Use AWS Lambda and Amazon SNS for automated notifications.</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>
+The <b>Self-Healing Infrastructure with Auto Scaling Using AWS</b> project demonstrates how cloud automation
+improves the reliability, scalability, and efficiency of modern applications. By integrating Amazon EC2,
+Elastic Load Balancer, Auto Scaling Group, and CloudWatch, the system automatically detects failures,
+replaces unhealthy instances, and adjusts computing resources based on user demand.
+</p>
+
+<p>
+This automated approach minimizes downtime, improves application performance, and reduces operational costs
+by allocating resources only when required. The project eliminates the need for constant manual monitoring,
+allowing organizations to focus on innovation rather than infrastructure management. As businesses continue
+to migrate to cloud platforms, self-healing and auto-scaling architectures will become increasingly essential
+for delivering secure, reliable, and highly available applications.
+</p>
+
+<footer>
+<h3>Self-Healing Infrastructure with Auto Scaling Using AWS</h3>
+<p>Project Abstract Report</p>
+</footer>
+
+</div>
+
+</body>
+</html>
